@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.27_01   2018-06-06 14:40:32 -0400
   - FFI::TinyCC and FFI::TinyCC::Inline are now separately distributed.
     Older entries include the history of BOTH modules.
   - Perl 5.10 or later is now required.
