@@ -1,7 +1,5 @@
 use Test2::V0 -no_srand => 1;
 use FindBin ();
-use File::ShareDir::Dist qw( dist_share );
-use Path::Tiny qw( path );
 
 sub require_ok ($);
 

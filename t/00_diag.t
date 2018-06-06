@@ -10,15 +10,10 @@ my %modules;
 my $post_diag;
 
 $modules{$_} = $_ for qw(
-  Carp
-  Exporter
   ExtUtils::MakeMaker
   FFI::Platypus
   FFI::Platypus::Type::StringArray
   FFI::TinyCC
-  File::ShareDir::Dist
-  FindBin
-  Path::Tiny
   Test2::V0
 );
 
