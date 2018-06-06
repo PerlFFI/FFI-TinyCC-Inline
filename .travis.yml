@@ -2,14 +2,11 @@ language: perl
 sudo: false
 
 install:
-  - cpanm -n autodie Alien::TinyCC Archive::Ar File::chdir Path::Tiny File::ShareDir::Dist Test2::API Test2::V0
-  - cpanm -n FFI::Platypus FFI::Platypus::Type::StringArray
-  - perl -Iinc -MMy::DLL -e tcc_build
+  - cpanm -n Dist::Zilla
+  - dzil authordeps --missing | cpanm -n
+  - dzil listdeps --missing   | cpanm -n
 
 perl:
-  - "5.8"
-  - "5.10"
-  - "5.12"
   - "5.14"
   - "5.16"
   - "5.18"
@@ -19,7 +16,7 @@ perl:
   - "5.26"
 
 script:
-  - prove -PShareDirDist -lv
+  - dzil test -v
 
 env:
   global:

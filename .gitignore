@@ -1,5 +1,2 @@
-/FFI-TinyCC-*
+/FFI-TinyCC-Inline-*
 /.build
-/share/libtcc.*
-/share/lib/
-/share/build.log

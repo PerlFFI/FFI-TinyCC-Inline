@@ -1,5 +1,3 @@
-use lib 't/lib';
-use Test2::Require::Perl510;
 use Test2::V0 -no_srand => 1;
 use FFI::TinyCC::Inline qw( tcc_inline );
 

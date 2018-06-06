@@ -10,17 +10,16 @@ my %modules;
 my $post_diag;
 
 $modules{$_} = $_ for qw(
-  Alien::TinyCC
-  Archive::Ar
+  Carp
+  Exporter
+  ExtUtils::MakeMaker
   FFI::Platypus
   FFI::Platypus::Type::StringArray
+  FFI::TinyCC
   File::ShareDir::Dist
-  File::chdir
-  Module::Build
+  FindBin
   Path::Tiny
-  Test2::Require
   Test2::V0
-  autodie
 );
 
 $post_diag = sub { eval q{

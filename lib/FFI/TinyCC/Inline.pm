@@ -2,7 +2,7 @@ package FFI::TinyCC::Inline;
 
 use strict;
 use warnings;
-use 5.008001;
+use 5.010;
 use FFI::Platypus;
 use FFI::TinyCC;
 use Carp qw( croak );
@@ -104,8 +104,6 @@ sub _generate_sub ($$$)
 }
 
 =head1 OPTIONS
-
-[requires Perl 5.10.0 or better]
 
 You can specify Tiny C options using the scoped pragmata, like so:
 
