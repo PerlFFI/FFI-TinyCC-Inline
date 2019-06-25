@@ -111,7 +111,7 @@ You can specify Tiny C options using the scoped pragmata, like so:
  
  # prints 1
  print tcc_eval q{
- #include <foo.h> /* will search /foo/include
+ #include <foo.h> /* will search /foo/include */
  int main()
  {
    return FOO; /* defined and set to 1 */
