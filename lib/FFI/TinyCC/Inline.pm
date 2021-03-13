@@ -26,7 +26,7 @@ our @EXPORT = @EXPORT_OK;
  };
  
  print square(4), "\n"; # prints 16
-
+ 
  use FFI::TinyCC::Inline qw( tcc_eval );
  
  # sets value to 6:
@@ -82,9 +82,9 @@ sub _generate_sub ($$$)
 {
   my($func_name, $func, $tcc) = @_;
   my $sub;
-  
+
   my $address = $tcc->get_symbol($func_name);
-  
+
   if(@{ $func->{arg_types} } == 2
   && $func->{arg_types}->[0] eq 'int'
   && $func->{arg_types}->[1] =~ /^(const |)char \*\*$/)
@@ -99,7 +99,7 @@ sub _generate_sub ($$$)
     my $f = $ffi->function($address => [map { _typemap $_ } @{ $func->{arg_types} }] => _typemap $func->{return_type});
     $sub = sub { $f->call(@_) };
   }
-  
+
   $sub;
 }
 
@@ -123,7 +123,7 @@ You can specify Tiny C options using the scoped pragmata, like so:
 sub import
 {
   my($class, @rest) = @_;
-  
+
   if(defined $rest[0] && defined $rest[1]
   && $rest[0] eq 'options')
   {
@@ -137,7 +137,7 @@ sub import
       croak "options not supported on Perl 5.8";
     }
   }
-  
+
   return unless @rest > 0;
 
   @_ = ($class, @rest);
@@ -174,7 +174,7 @@ will be translated from the list of arguments passed in.  Example:
      for(i=0; i<argc; i++)
      {
        puts(argv[i]);
-     } 
+     }
    }
  };
  
@@ -186,9 +186,9 @@ sub tcc_inline ($)
 {
   my($code) = @_;
   my $caller = caller;
-  
+
   my $tcc = FFI::TinyCC->new(_no_free_store => 1);
-  
+
   my $h = (caller(0))[10];
   if($h->{"FFI::TinyCC::Inline/options"})
   { $tcc->set_options($h->{"FFI::TinyCC::Inline/options"}) }
@@ -217,7 +217,7 @@ sub tcc_eval ($;@)
 {
   my($code, @args) = @_;
   my $tcc = FFI::TinyCC->new;
-  
+
   my $h = (caller(0))[10];
   if($h->{"FFI::TinyCC::Inline/options"})
   { $tcc->set_options($h->{"FFI::TinyCC::Inline/options"}) }
@@ -332,7 +332,7 @@ sub extract_function_metadata {
     my $is_decl     = $what eq ';';
     my $function    = $identifier;
     my $return_type = _normalize_type($type);
-    my @arguments   = split ',', $args;
+    my @arguments   = split /,/, $args;
 
     #goto RESYNC if $is_decl && !$self->{data}{AUTOWRAP};
     goto RESYNC if exists $results->{functions}{$function};
@@ -414,7 +414,7 @@ RESYNC:  # Skip the rest of the current line, and continue.
 =head1 BUNDLED SOFTWARE
 
 This package also comes with a parser that was shamelessly stolen from L<XS::TCC>,
-which I strongly suspect was itself shamelessly "borrowed" from 
+which I strongly suspect was itself shamelessly "borrowed" from
 L<Inline::C::Parser::RegExp>
 
 The license details for the parser are:
