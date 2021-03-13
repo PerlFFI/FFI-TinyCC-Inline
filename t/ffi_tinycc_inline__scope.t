@@ -3,13 +3,13 @@ use FFI::TinyCC::Inline qw( tcc_inline );
 
 subtest inline => sub {
   use FFI::TinyCC::Inline options => "-DFOO=1";
-  
+
   eval { tcc_inline q{ int foo11() { return FOO; } } };
   is $@, '', 'tcc_inline';
 
   subtest "one step" => sub {
     use FFI::TinyCC::Inline options => "-DFOO=2";
-  
+
     eval { tcc_inline q{ int foo2() { return FOO; } } };
     is $@, '', 'tcc_inline';
 
@@ -20,7 +20,7 @@ subtest inline => sub {
 
   subtest "two step" => sub {
     use FFI::TinyCC::Inline options => "-DFOO=3";
-  
+
     eval { tcc_inline q{ int foo3() { return FOO; } } };
     is $@, '', 'tcc_inline';
 
