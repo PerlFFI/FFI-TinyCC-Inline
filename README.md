@@ -1,4 +1,4 @@
-# FFI::TinyCC::Inline ![linux](https://github.com/Perl5-FFI/FFI-TinyCC-Inline/workflows/linux/badge.svg)
+# FFI::TinyCC::Inline ![static](https://github.com/Perl5-FFI/FFI-TinyCC-Inline/workflows/static/badge.svg) ![linux](https://github.com/Perl5-FFI/FFI-TinyCC-Inline/workflows/linux/badge.svg)
 
 Embed Tiny C code in your Perl program
 
