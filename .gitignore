@@ -1,2 +1,4 @@
 /FFI-TinyCC-Inline-*
 /.build
+*.old
+*.orig
